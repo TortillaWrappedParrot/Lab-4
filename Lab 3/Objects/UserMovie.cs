@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Lab_3.Objects
+namespace Lab_4.Objects
 {
     public class UserMovie : Movie
     {

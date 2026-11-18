@@ -1,4 +1,4 @@
-﻿namespace Lab_3
+﻿namespace Lab_4
 {
     partial class ClientDashboard
     {

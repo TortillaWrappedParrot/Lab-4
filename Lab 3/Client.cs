@@ -1,6 +1,6 @@
-namespace Lab_3
+namespace Lab_4
 {
-    internal static class Program
+    internal static class Client
     {
         /// <summary>
         ///  The main entry point for the application.
