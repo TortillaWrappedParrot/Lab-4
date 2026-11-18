@@ -1,4 +1,4 @@
-﻿namespace Lab_3.Forms
+﻿namespace Lab_4.Forms
 {
     partial class AdminDashboard
     {

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Lab_3.Forms
+namespace Lab_4.Forms
 {
     public partial class AdminDashboard : Form
     {
