@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab_3
 {
-    internal class Server
+    internal class DatabaseManager
     {
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lab_3
 {
-    internal class RecommendationEngine
+    internal class TrendManager
     {
     }
 }
