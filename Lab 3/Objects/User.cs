@@ -12,14 +12,9 @@ namespace Lab_4.Objects
         public string username;
         [CsvColumn("last_login")]
         public DateTime lastActive;
-        public List<UserMovie> watchedMovies;
+        public List<Movie> watchedMovies;
 
-
-        public User()
-        {
-        }
-
-        public User(int userID, string username, DateTime lastActive, List<UserMovie> watchedMovies)
+        public User(int userID, string username, DateTime lastActive, List<Movie> watchedMovies)
         {
             this.userID = userID;
             this.username = username;
@@ -27,7 +22,7 @@ namespace Lab_4.Objects
             this.watchedMovies = watchedMovies;
         }
 
-        public List<UserMovie> getWatchedMovies()
+        public List<Movie> getWatchedMovies()
         {
             return watchedMovies;
         }
