@@ -28,18 +28,216 @@
         /// </summary>
         private void InitializeComponent()
         {
+            checkedListBox1 = new CheckedListBox();
+            keywordFilter = new TextBox();
+            label1 = new Label();
+            searchButton = new Button();
+            label2 = new Label();
+            titleLabel = new Label();
+            titleFilter = new TextBox();
+            authorFilter = new TextBox();
+            authorLabel = new Label();
+            releaseYearFilter = new TextBox();
+            releaseYearLabel = new Label();
+            genreFilter = new TextBox();
+            genreLabel = new Label();
+            filterCheck = new CheckBox();
+            signOutButton = new Button();
+            adminDashboard = new Button();
+            getRecomendedFilter = new Button();
             SuspendLayout();
+            // 
+            // checkedListBox1
+            // 
+            checkedListBox1.FormattingEnabled = true;
+            checkedListBox1.Location = new Point(161, 128);
+            checkedListBox1.Name = "checkedListBox1";
+            checkedListBox1.Size = new Size(486, 310);
+            checkedListBox1.TabIndex = 0;
+            // 
+            // keywordFilter
+            // 
+            keywordFilter.Location = new Point(161, 99);
+            keywordFilter.Name = "keywordFilter";
+            keywordFilter.Size = new Size(359, 23);
+            keywordFilter.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(164, 75);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Search Input";
+            // 
+            // searchButton
+            // 
+            searchButton.Location = new Point(526, 98);
+            searchButton.Name = "searchButton";
+            searchButton.Size = new Size(64, 23);
+            searchButton.TabIndex = 3;
+            searchButton.Text = "Search";
+            searchButton.UseVisualStyleBackColor = true;
+            searchButton.Click += SearchButton_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 128);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 15);
+            label2.TabIndex = 4;
+            // 
+            // titleLabel
+            // 
+            titleLabel.AutoSize = true;
+            titleLabel.Location = new Point(60, 164);
+            titleLabel.Name = "titleLabel";
+            titleLabel.Size = new Size(29, 15);
+            titleLabel.TabIndex = 6;
+            titleLabel.Text = "Title";
+            // 
+            // titleFilter
+            // 
+            titleFilter.Location = new Point(27, 182);
+            titleFilter.Name = "titleFilter";
+            titleFilter.Size = new Size(100, 23);
+            titleFilter.TabIndex = 7;
+            // 
+            // authorFilter
+            // 
+            authorFilter.Location = new Point(27, 228);
+            authorFilter.Name = "authorFilter";
+            authorFilter.Size = new Size(100, 23);
+            authorFilter.TabIndex = 9;
+            // 
+            // authorLabel
+            // 
+            authorLabel.AutoSize = true;
+            authorLabel.Location = new Point(54, 210);
+            authorLabel.Name = "authorLabel";
+            authorLabel.Size = new Size(44, 15);
+            authorLabel.TabIndex = 8;
+            authorLabel.Text = "Author";
+            // 
+            // releaseYearFilter
+            // 
+            releaseYearFilter.Location = new Point(27, 276);
+            releaseYearFilter.Name = "releaseYearFilter";
+            releaseYearFilter.Size = new Size(100, 23);
+            releaseYearFilter.TabIndex = 11;
+            // 
+            // releaseYearLabel
+            // 
+            releaseYearLabel.AutoSize = true;
+            releaseYearLabel.Location = new Point(41, 258);
+            releaseYearLabel.Name = "releaseYearLabel";
+            releaseYearLabel.Size = new Size(71, 15);
+            releaseYearLabel.TabIndex = 10;
+            releaseYearLabel.Text = "Release Year";
+            // 
+            // genreFilter
+            // 
+            genreFilter.Location = new Point(27, 324);
+            genreFilter.Name = "genreFilter";
+            genreFilter.Size = new Size(100, 23);
+            genreFilter.TabIndex = 13;
+            // 
+            // genreLabel
+            // 
+            genreLabel.AutoSize = true;
+            genreLabel.Location = new Point(54, 306);
+            genreLabel.Name = "genreLabel";
+            genreLabel.Size = new Size(38, 15);
+            genreLabel.TabIndex = 12;
+            genreLabel.Text = "Genre";
+            // 
+            // filterCheck
+            // 
+            filterCheck.AutoSize = true;
+            filterCheck.Location = new Point(27, 124);
+            filterCheck.Name = "filterCheck";
+            filterCheck.Size = new Size(113, 19);
+            filterCheck.TabIndex = 14;
+            filterCheck.Text = "Use Extra Filters?";
+            filterCheck.UseVisualStyleBackColor = true;
+            // 
+            // signOutButton
+            // 
+            signOutButton.Location = new Point(12, 12);
+            signOutButton.Name = "signOutButton";
+            signOutButton.Size = new Size(75, 23);
+            signOutButton.TabIndex = 15;
+            signOutButton.Text = "Sign Out";
+            signOutButton.UseVisualStyleBackColor = true;
+            // 
+            // adminDashboard
+            // 
+            adminDashboard.Enabled = false;
+            adminDashboard.Location = new Point(653, 415);
+            adminDashboard.Name = "adminDashboard";
+            adminDashboard.Size = new Size(135, 23);
+            adminDashboard.TabIndex = 16;
+            adminDashboard.Text = "Admin Dashboard";
+            adminDashboard.UseVisualStyleBackColor = true;
+            adminDashboard.Visible = false;
+            // 
+            // getRecomendedFilter
+            // 
+            getRecomendedFilter.Location = new Point(596, 99);
+            getRecomendedFilter.Name = "getRecomendedFilter";
+            getRecomendedFilter.Size = new Size(153, 23);
+            getRecomendedFilter.TabIndex = 17;
+            getRecomendedFilter.Text = "Get Recomended Movies";
+            getRecomendedFilter.UseVisualStyleBackColor = true;
             // 
             // ClientDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(getRecomendedFilter);
+            Controls.Add(adminDashboard);
+            Controls.Add(signOutButton);
+            Controls.Add(filterCheck);
+            Controls.Add(genreFilter);
+            Controls.Add(genreLabel);
+            Controls.Add(releaseYearFilter);
+            Controls.Add(releaseYearLabel);
+            Controls.Add(authorFilter);
+            Controls.Add(authorLabel);
+            Controls.Add(titleFilter);
+            Controls.Add(titleLabel);
+            Controls.Add(label2);
+            Controls.Add(searchButton);
+            Controls.Add(label1);
+            Controls.Add(keywordFilter);
+            Controls.Add(checkedListBox1);
             Name = "ClientDashboard";
             Text = "CineTrend Client Dashboard";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private CheckedListBox checkedListBox1;
+        private TextBox keywordFilter;
+        private Label label1;
+        private Button searchButton;
+        private Label label2;
+        private Label titleLabel;
+        private TextBox titleFilter;
+        private TextBox authorFilter;
+        private Label authorLabel;
+        private TextBox releaseYearFilter;
+        private Label releaseYearLabel;
+        private TextBox genreFilter;
+        private Label genreLabel;
+        private CheckBox filterCheck;
+        private Button signOutButton;
+        private Button adminDashboard;
+        private Button getRecomendedFilter;
     }
 }

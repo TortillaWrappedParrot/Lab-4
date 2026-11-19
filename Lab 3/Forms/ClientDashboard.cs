@@ -14,5 +14,10 @@ namespace Lab_4
         {
             InitializeComponent();
         }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
