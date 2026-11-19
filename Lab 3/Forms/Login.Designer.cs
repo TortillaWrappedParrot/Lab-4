@@ -33,11 +33,12 @@
             UsernameLabel = new Label();
             textBox2 = new TextBox();
             label2 = new Label();
+            loginError = new Label();
             SuspendLayout();
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(281, 216);
+            LoginButton.Location = new Point(281, 231);
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(249, 23);
             LoginButton.TabIndex = 0;
@@ -83,11 +84,23 @@
             label2.TabIndex = 3;
             label2.Text = "Password";
             // 
+            // loginError
+            // 
+            loginError.AutoSize = true;
+            loginError.ForeColor = Color.Crimson;
+            loginError.Location = new Point(284, 213);
+            loginError.Name = "loginError";
+            loginError.Size = new Size(73, 15);
+            loginError.TabIndex = 5;
+            loginError.Text = "Error Display";
+            loginError.Visible = false;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(830, 450);
+            Controls.Add(loginError);
             Controls.Add(textBox2);
             Controls.Add(label2);
             Controls.Add(textBox1);
@@ -106,5 +119,6 @@
         private Label UsernameLabel;
         private TextBox textBox2;
         private Label label2;
+        private Label loginError;
     }
 }
