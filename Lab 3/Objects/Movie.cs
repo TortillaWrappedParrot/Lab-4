@@ -20,6 +20,7 @@ namespace Lab_4.Objects
         protected int dateReleased;
         protected string rating;
         protected int duration;
+        protected DateTime? lastWatched;
 
         // Default constructor
         public Movie()
@@ -28,7 +29,7 @@ namespace Lab_4.Objects
 
         // Parameterized constructor
         public Movie(string movieID, string director, string castMember, string country,
-                     DateTime dateAdded, int dateReleased, string rating, int duration)
+                     DateTime dateAdded, int dateReleased, string rating, int duration, DateTime? lastWatched)
         {
             this.movieID = movieID;
             this.director = director;
@@ -38,6 +39,7 @@ namespace Lab_4.Objects
             this.dateReleased = dateReleased;
             this.rating = rating;
             this.duration = duration;
+            this.lastWatched = lastWatched;
         }
 
         // Public properties (helpful for WinForms controls like DataGridView or ListBox)
