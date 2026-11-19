@@ -94,7 +94,7 @@
             Controls.Add(UsernameLabel);
             Controls.Add(LoginButton);
             Name = "Login";
-            Text = "Form1";
+            Text = "CineTrend";
             ResumeLayout(false);
             PerformLayout();
         }
