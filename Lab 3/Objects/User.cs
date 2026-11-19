@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,8 +7,10 @@ namespace Lab_4.Objects
 {
     public class User
     {
+        [CsvColumn("user_id")]
         public int userID;
         public string username;
+        [CsvColumn("last_login")]
         public DateTime lastActive;
         public List<UserMovie> watchedMovies;
 

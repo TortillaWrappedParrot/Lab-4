@@ -15,7 +15,7 @@ namespace Lab_4.Objects
 
         // Parameterized constructor passing base fields up to the Movie class
         public UserMovie(string movieID, string director, string castMember, string country,
-                         DateTime dateAdded, DateTime dateReleased, double rating, int duration,
+                         DateTime dateAdded, int dateReleased, string rating, int duration,
                          DateTime lastWatched)
             : base(movieID, director, castMember, country, dateAdded, dateReleased, rating, duration)
         {

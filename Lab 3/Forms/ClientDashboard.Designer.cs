@@ -175,8 +175,9 @@
             // 
             // adminDashboard
             // 
+            adminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             adminDashboard.Enabled = false;
-            adminDashboard.Location = new Point(653, 415);
+            adminDashboard.Location = new Point(663, 420);
             adminDashboard.Name = "adminDashboard";
             adminDashboard.Size = new Size(135, 23);
             adminDashboard.TabIndex = 16;
@@ -208,7 +209,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(810, 455);
             Controls.Add(clientError);
             Controls.Add(getRecomendedFilter);
             Controls.Add(adminDashboard);
