@@ -34,6 +34,9 @@
             textBox2 = new TextBox();
             label2 = new Label();
             loginError = new Label();
+            button1 = new Button();
+            label1 = new Label();
+            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // LoginButton
@@ -95,11 +98,40 @@
             loginError.Text = "Error Display";
             loginError.Visible = false;
             // 
+            // button1
+            // 
+            button1.Location = new Point(540, 320);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 6;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(281, 328);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 15);
+            label1.TabIndex = 7;
+            // 
+            // listBox1
+            // 
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(12, 289);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(518, 94);
+            listBox1.TabIndex = 8;
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(830, 450);
+            Controls.Add(listBox1);
+            Controls.Add(label1);
+            Controls.Add(button1);
             Controls.Add(loginError);
             Controls.Add(textBox2);
             Controls.Add(label2);
@@ -120,5 +152,8 @@
         private TextBox textBox2;
         private Label label2;
         private Label loginError;
+        private Button button1;
+        private Label label1;
+        private ListBox listBox1;
     }
 }

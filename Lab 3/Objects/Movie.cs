@@ -5,22 +5,26 @@ using CsvHelper;
 
 namespace Lab_4.Objects
 {
-    public class Movie
+    [CsvRecord]
+    public partial class Movie
     {
         // Protected fields accessible to this class and any derived classes
         [CsvColumn("show_id")]
-        protected string movieID;
-        protected string director;
+        public string movieID {  get; set; }
+        public string type { get; set; }
+        public string title { get; set; }
+        public string director { get; set; }
         [CsvColumn("cast")]
-        protected string castMember;
-        protected string country;
+        public string castMember { get; set; }
+        public string country { get; set; }
         [CsvColumn("date_added")]
-        protected DateTime dateAdded;
+        public string dateAdded { get; set; }
         [CsvColumn("release_year")]
-        protected int dateReleased;
-        protected string rating;
-        protected int duration;
-        protected DateTime? lastWatched;
+        public int dateReleased { get; set; }
+        public string rating { get; set; }
+        public string duration { get; set; }
+        [CsvIgnore]
+        public DateTime? lastWatched { get; set; }
 
         // Default constructor
         public Movie()
@@ -28,10 +32,12 @@ namespace Lab_4.Objects
         }
 
         // Parameterized constructor
-        public Movie(string movieID, string director, string castMember, string country,
-                     DateTime dateAdded, int dateReleased, string rating, int duration, DateTime? lastWatched)
+        public Movie(string movieID, string type, string title, string director, string castMember, string country,
+                     string dateAdded, int dateReleased, string rating, string duration, DateTime? lastWatched)
         {
             this.movieID = movieID;
+            this.type = type;
+            this.title = title;
             this.director = director;
             this.castMember = castMember;
             this.country = country;
@@ -42,20 +48,14 @@ namespace Lab_4.Objects
             this.lastWatched = lastWatched;
         }
 
-        // Public properties (helpful for WinForms controls like DataGridView or ListBox)
-        public string MovieID { get => movieID; set => movieID = value; }
-        public string Director { get => director; set => director = value; }
-        public string CastMember { get => castMember; set => castMember = value; }
-        public string Country { get => country; set => country = value; }
-        public DateTime DateAdded { get => dateAdded; set => dateAdded = value; }
-        public int DateReleased { get => dateReleased; set => dateReleased = value; }
-        public string Rating { get => rating; set => rating = value; }
-        public int Duration { get => duration; set => duration = value; }
-
-        // Virtual method for polymorphism
-        public virtual string GetDetails()
+        public DateOnly getDate()
         {
-            return $"ID: {movieID} | Directed by {director} | Rating: {rating}/10 ({duration} mins)";
+            return DateOnly.ParseExact(dateAdded, "MMMM d, yyyy");
+        }
+
+        public string[] getCast()
+        {
+            return castMember.Split(", ");
         }
     }
 }

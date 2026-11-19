@@ -5,16 +5,18 @@ using System.Text;
 
 namespace Lab_4.Objects
 {
-    public class User
+    [CsvRecord]
+    public partial class User
     {
         [CsvColumn("user_id")]
         public int userID;
         public string username;
         [CsvColumn("last_login")]
-        public DateTime lastActive;
-        public List<Movie> watchedMovies;
+        public DateOnly lastActive;
+        [CsvColumn("watch_history")]
+        public string watchedMovies;
 
-        public User(int userID, string username, DateTime lastActive, List<Movie> watchedMovies)
+        public User(int userID, string username, DateOnly lastActive, string watchedMovies)
         {
             this.userID = userID;
             this.username = username;
@@ -22,7 +24,7 @@ namespace Lab_4.Objects
             this.watchedMovies = watchedMovies;
         }
 
-        public List<Movie> getWatchedMovies()
+        public string getWatchedMovies()
         {
             return watchedMovies;
         }
