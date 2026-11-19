@@ -1,19 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using CsvHelper;
 
 namespace Lab_4.Objects
 {
     public class Movie
     {
         // Protected fields accessible to this class and any derived classes
+        [CsvColumn("show_id")]
         protected string movieID;
         protected string director;
+        [CsvColumn("cast")]
         protected string castMember;
         protected string country;
+        [CsvColumn("date_added")]
         protected DateTime dateAdded;
-        protected DateTime dateReleased;
-        protected double rating;
+        [CsvColumn("release_year")]
+        protected int dateReleased;
+        protected string rating;
         protected int duration;
 
         // Default constructor
@@ -23,7 +28,7 @@ namespace Lab_4.Objects
 
         // Parameterized constructor
         public Movie(string movieID, string director, string castMember, string country,
-                     DateTime dateAdded, DateTime dateReleased, double rating, int duration)
+                     DateTime dateAdded, int dateReleased, string rating, int duration)
         {
             this.movieID = movieID;
             this.director = director;
@@ -41,8 +46,8 @@ namespace Lab_4.Objects
         public string CastMember { get => castMember; set => castMember = value; }
         public string Country { get => country; set => country = value; }
         public DateTime DateAdded { get => dateAdded; set => dateAdded = value; }
-        public DateTime DateReleased { get => dateReleased; set => dateReleased = value; }
-        public double Rating { get => rating; set => rating = value; }
+        public int DateReleased { get => dateReleased; set => dateReleased = value; }
+        public string Rating { get => rating; set => rating = value; }
         public int Duration { get => duration; set => duration = value; }
 
         // Virtual method for polymorphism

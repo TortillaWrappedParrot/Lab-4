@@ -44,7 +44,8 @@
             // 
             // clientDashboard
             // 
-            clientDashboard.Location = new Point(667, 415);
+            clientDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            clientDashboard.Location = new Point(707, 421);
             clientDashboard.Name = "clientDashboard";
             clientDashboard.Size = new Size(121, 23);
             clientDashboard.TabIndex = 0;
@@ -149,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(854, 458);
             Controls.Add(adminError);
             Controls.Add(yearLabel);
             Controls.Add(yearAmount);
