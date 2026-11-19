@@ -45,6 +45,7 @@
             signOutButton = new Button();
             adminDashboard = new Button();
             getRecomendedFilter = new Button();
+            clientError = new Label();
             SuspendLayout();
             // 
             // checkedListBox1
@@ -52,7 +53,7 @@
             checkedListBox1.FormattingEnabled = true;
             checkedListBox1.Location = new Point(161, 128);
             checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(486, 310);
+            checkedListBox1.Size = new Size(486, 274);
             checkedListBox1.TabIndex = 0;
             // 
             // keywordFilter
@@ -192,11 +193,23 @@
             getRecomendedFilter.Text = "Get Recomended Movies";
             getRecomendedFilter.UseVisualStyleBackColor = true;
             // 
+            // clientError
+            // 
+            clientError.AutoSize = true;
+            clientError.ForeColor = Color.Crimson;
+            clientError.Location = new Point(161, 415);
+            clientError.Name = "clientError";
+            clientError.Size = new Size(73, 15);
+            clientError.TabIndex = 18;
+            clientError.Text = "Error Display";
+            clientError.Visible = false;
+            // 
             // ClientDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(clientError);
             Controls.Add(getRecomendedFilter);
             Controls.Add(adminDashboard);
             Controls.Add(signOutButton);
@@ -239,5 +252,6 @@
         private Button signOutButton;
         private Button adminDashboard;
         private Button getRecomendedFilter;
+        private Label clientError;
     }
 }
