@@ -13,5 +13,20 @@ namespace Lab_4
         {
             return netflixAPI.getMovies();
         }
+
+        static public User? serverLogin(string username, string password)
+        {
+            return netflixAPI.validateLogin(username, password);
+        }
+
+        static public bool updateUser(int id, string watchHistory)
+        {
+            return netflixAPI.updateUserMovies(id, watchHistory);
+        }
+
+        static public bool createUser(string username, string password, string watchHistory)
+        {
+            return netflixAPI.addUser(username, password, watchHistory);
+        }
     }
 }

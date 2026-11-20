@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using CsvHelper;
+﻿using CsvHelper;
 using CsvHelper.Linq;
 using Lab_4.Objects;
 using Microsoft.VisualBasic.Logging;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Lab_4
 {
@@ -88,7 +89,33 @@ namespace Lab_4
             }
         }
 
-        public bool updateUser(int id, string newMovieList)
+        public bool updateUserStatus(int id)
+        {
+            using var reader = CsvReader.FromFile(usersCSVPath);
+            List<User> records = reader.GetRecords<User>().ToList();
+
+            User? targetUser = records.FirstOrDefault(m => m.userID == id);
+
+            reader.Dispose();
+
+            if (targetUser != null)
+            {
+                targetUser.lastActive = DateOnly.FromDateTime(DateTime.Now);
+
+                using (var writer = CsvWriter.ToFile(usersCSVPath))
+                {
+                    writer.WriteRecords(records);
+                }
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool updateUserMovies(int id, string newMovieList)
         {
             using var reader = CsvReader.FromFile(usersCSVPath);
             List<User> records = reader.GetRecords<User>().ToList();
@@ -111,6 +138,20 @@ namespace Lab_4
             {
                 return false;
             }
+        }
+
+        public User? validateLogin(string username, string password)
+        {
+            var users = CsvQueryable.FromFile<User>(usersCSVPath);
+
+            var match = users.Where(u => u.requestPassword() == password).FirstOrDefault();
+
+            if (match != null)
+            {
+                updateUserStatus(match.userID);
+            }
+
+            return match;
         }
     }
 }

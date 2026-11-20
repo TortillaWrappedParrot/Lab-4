@@ -33,5 +33,10 @@ namespace Lab_4.Objects
         {
             return watchedMovies;
         }
+
+        public string requestPassword()
+        {
+            return password;
+        }
     }
 }
