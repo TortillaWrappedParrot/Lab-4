@@ -34,6 +34,11 @@ namespace Lab_4.Objects
             return watchedMovies;
         }
 
+        public bool getStatus()
+        {
+            return adminStatus;
+        }
+
         public string requestPassword()
         {
             return password;

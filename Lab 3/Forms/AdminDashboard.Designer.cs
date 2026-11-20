@@ -37,8 +37,8 @@
             movieAmount = new TextBox();
             amountLabel = new Label();
             label1 = new Label();
-            yearLabel = new Label();
-            yearAmount = new TextBox();
+            monthLabel = new Label();
+            monthAmount = new TextBox();
             adminError = new Label();
             SuspendLayout();
             // 
@@ -51,6 +51,7 @@
             clientDashboard.TabIndex = 0;
             clientDashboard.Text = "Client Dashboard";
             clientDashboard.UseVisualStyleBackColor = true;
+            clientDashboard.Click += clientDashboard_Click;
             // 
             // listBox1
             // 
@@ -86,6 +87,7 @@
             generateUsersButton.TabIndex = 4;
             generateUsersButton.Text = "Generate Users";
             generateUsersButton.UseVisualStyleBackColor = true;
+            generateUsersButton.Click += generateUsersButton_Click;
             // 
             // userAmount
             // 
@@ -119,21 +121,21 @@
             label1.TabIndex = 8;
             label1.Text = "Amount of Movies";
             // 
-            // yearLabel
+            // monthLabel
             // 
-            yearLabel.AutoSize = true;
-            yearLabel.Location = new Point(12, 101);
-            yearLabel.Name = "yearLabel";
-            yearLabel.Size = new Size(69, 15);
-            yearLabel.TabIndex = 10;
-            yearLabel.Text = "Lowest Year";
+            monthLabel.AutoSize = true;
+            monthLabel.Location = new Point(12, 101);
+            monthLabel.Name = "monthLabel";
+            monthLabel.Size = new Size(74, 15);
+            monthLabel.TabIndex = 10;
+            monthLabel.Text = "Max Months";
             // 
-            // yearAmount
+            // monthAmount
             // 
-            yearAmount.Location = new Point(12, 119);
-            yearAmount.Name = "yearAmount";
-            yearAmount.Size = new Size(128, 23);
-            yearAmount.TabIndex = 9;
+            monthAmount.Location = new Point(12, 119);
+            monthAmount.Name = "monthAmount";
+            monthAmount.Size = new Size(128, 23);
+            monthAmount.TabIndex = 9;
             // 
             // adminError
             // 
@@ -152,8 +154,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(854, 458);
             Controls.Add(adminError);
-            Controls.Add(yearLabel);
-            Controls.Add(yearAmount);
+            Controls.Add(monthLabel);
+            Controls.Add(monthAmount);
             Controls.Add(label1);
             Controls.Add(amountLabel);
             Controls.Add(movieAmount);
@@ -180,8 +182,8 @@
         private TextBox movieAmount;
         private Label amountLabel;
         private Label label1;
-        private Label yearLabel;
-        private TextBox yearAmount;
+        private Label monthLabel;
+        private TextBox monthAmount;
         private Label adminError;
     }
 }

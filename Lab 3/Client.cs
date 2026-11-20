@@ -4,10 +4,10 @@ namespace Lab_4
 {
     internal class Client
     {
-        private User? currentUser = null;
-        private List<Movie>? allMovies = null;
+        static private User? currentUser = null;
+        static private List<Movie>? allMovies = null;
 
-        public void addWatchedMovie(string id)
+        static public void addWatchedMovie(string id)
         {
             if (currentUser != null)
             {
@@ -15,12 +15,12 @@ namespace Lab_4
             }
         }
 
-        public List<Movie>? displayMovies()
+        static public List<Movie>? displayMovies()
         {
             return allMovies;
         }
 
-        public List<Movie> displayMovies(Filter filter)
+        static public List<Movie> displayMovies(Filter filter)
         {
             if (allMovies == null)
             {
@@ -62,25 +62,30 @@ namespace Lab_4
             return movies;
         }
 
-        public bool clientLogin(string userName, string password)
+        static public User? getCurrentUser()
+        {
+            return currentUser;
+        }
+
+        static public bool clientLogin(string userName, string password)
         {
             currentUser = DatabaseManager.serverLogin(userName, password);
 
-            if (currentUser == null)
+            if (currentUser != null)
             {
                 allMovies = DatabaseManager.requestMovies();
 
                 Form.ActiveForm?.Close();
                 new ClientDashboard().Show();
 
-                return false;
+                return true;
             } else
             {
-                return true;
+                return false;
             }
         }
 
-        public bool logout()
+        static public bool logout()
         {
             currentUser = null;
             allMovies = null;

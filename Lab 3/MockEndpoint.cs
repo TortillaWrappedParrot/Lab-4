@@ -63,10 +63,12 @@ namespace Lab_4
             using var reader = CsvReader.FromFile(usersCSVPath);
             var users = reader.GetRecords<User>().ToList();
 
-            if (users.Where(u => u.username == username) != null)
+            if (users.Where(u => u.username == username).FirstOrDefault() != null)
             {
                 return false;
             }
+
+            reader.Dispose();
 
             int count = users.Count;
 
@@ -76,9 +78,6 @@ namespace Lab_4
                 {
                     writer.WriteRecords(users);
                     writer.WriteRecord((count + 1).ToString(), username, password, DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd"), newMovieList, "False");
-
-                    writer.EndRecord();
-                    writer.Flush();
                 }
 
                 return true;
