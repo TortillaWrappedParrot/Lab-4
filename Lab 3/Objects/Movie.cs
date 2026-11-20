@@ -23,6 +23,9 @@ namespace Lab_4.Objects
         public int dateReleased { get; set; }
         public string rating { get; set; }
         public string duration { get; set; }
+        [CsvColumn("listed_in")]
+        public string listedIn { get; set; }
+        public string description { get; set; }
         [CsvIgnore]
         public DateTime? lastWatched { get; set; }
 
@@ -33,7 +36,7 @@ namespace Lab_4.Objects
 
         // Parameterized constructor
         public Movie(string movieID, string type, string title, string director, string castMember, string country,
-                     string dateAdded, int dateReleased, string rating, string duration, DateTime? lastWatched)
+                     string dateAdded, int dateReleased, string rating, string duration, string description, DateTime? lastWatched)
         {
             this.movieID = movieID;
             this.type = type;
@@ -45,6 +48,7 @@ namespace Lab_4.Objects
             this.dateReleased = dateReleased;
             this.rating = rating;
             this.duration = duration;
+            this.description = description;
             this.lastWatched = lastWatched;
         }
 

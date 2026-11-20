@@ -57,7 +57,7 @@ namespace Lab_4
         static public bool addUser(string username, string password, string newMovieList)
         {
             using var reader = CsvReader.FromFile(usersCSVPath);
-            List<User> records = reader.GetRecords<User>().ToList();
+            var records = reader.GetRecords<User>().ToList();
 
             int count = records.Count;
 
@@ -67,7 +67,8 @@ namespace Lab_4
             {
                 using (var writer = CsvWriter.ToFile(usersCSVPath))
                 {
-                    writer.WriteRecord(username, password, "0", DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd"), newMovieList);
+                    writer.WriteRecords(records);
+                    writer.WriteRecord((count + 1).ToString(), username, password, "0", DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd"), newMovieList);
                 }
 
                 return true;
