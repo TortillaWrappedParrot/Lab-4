@@ -6,23 +6,45 @@ namespace Lab_4.Objects
 {
     public class Filter
     {
-        protected string? director;
-        protected string? castMember;
-        protected string? country;
-        protected DateTime? dateAdded;
-        protected DateTime? dateReleased;
-        protected double? rating;
-        protected int? duration;
+        public string? keyword;
+        public string? title;
+        public string? director;
+        public int? releaseYear;
+        public string? genre;
 
-        public Filter(string director, string castMember, string country, DateTime dateAdded, DateTime dateReleased, double rating, int duration)
+        public Filter(string keyword, string title, string director, string releaseYear, string genre)
         {
-            this.director = director;
-            this.castMember = castMember;
-            this.country = country;
-            this.dateAdded = dateAdded;
-            this.dateReleased = dateReleased;
-            this.rating = rating;
-            this.duration = duration;
+            if (!keyword.IsWhiteSpace())
+            {
+                this.keyword = keyword.ToLower();
+            }
+
+            if (!title.IsWhiteSpace())
+            {
+                this.title = title.ToLower();
+            }
+
+            if (!director.IsWhiteSpace())
+            {
+                this.director = director.ToLower();
+            }
+
+            if (!releaseYear.IsWhiteSpace())
+            {
+                try
+                {
+                    int year = int.Parse(releaseYear);
+                    this.releaseYear = year;
+                } catch (Exception)
+                {
+                    
+                }
+            }
+
+            if (!genre.IsWhiteSpace())
+            {
+                this.genre = genre.ToLower();
+            }
         }
     }
 }
