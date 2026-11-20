@@ -52,9 +52,16 @@ namespace Lab_4.Objects
             this.lastWatched = lastWatched;
         }
 
-        public DateOnly getDate()
+        public DateOnly? getDate()
         {
-            return DateOnly.ParseExact(dateAdded, "MMMM d, yyyy");
+            try
+            {
+                DateOnly returnDate = DateOnly.ParseExact(dateAdded.Trim(), "MMMM d, yyyy");
+                return returnDate;
+            } catch (Exception) 
+            { 
+                return null; 
+            }
         }
 
         public string[] getCast()

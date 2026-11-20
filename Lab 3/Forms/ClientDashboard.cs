@@ -1,4 +1,5 @@
-﻿using Lab_4.Objects;
+﻿using Lab_4.Forms;
+using Lab_4.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,16 +65,23 @@ namespace Lab_4
 
         private void movieDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
 
             if (movieDisplay.SelectedValue != null)
             {
                 movieDescription.Visible = true;
                 movieDescription.Text = movieDisplay.SelectedValue.ToString();
-            } else
+            }
+            else
             {
                 movieDescription.Visible = false;
             }
+        }
+
+        private void adminDashboard_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            new AdminDashboard().Show();
         }
     }
 }

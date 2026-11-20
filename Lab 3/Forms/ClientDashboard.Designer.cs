@@ -167,6 +167,7 @@
             adminDashboard.Text = "Admin Dashboard";
             adminDashboard.UseVisualStyleBackColor = true;
             adminDashboard.Visible = false;
+            adminDashboard.Click += adminDashboard_Click;
             // 
             // getRecomendedFilter
             // 
