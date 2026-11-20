@@ -10,7 +10,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsvHelper" Version="34.0.0" />
+    <PackageReference Include="CsvHelper" Version="34.1.0" />
+    <PackageReference Include="CsvHelper.Linq" Version="34.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CSVFiles\netflix_titles.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="CSVFiles\users.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
