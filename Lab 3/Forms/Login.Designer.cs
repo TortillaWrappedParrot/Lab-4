@@ -29,14 +29,12 @@
         private void InitializeComponent()
         {
             LoginButton = new Button();
-            textBox1 = new TextBox();
+            usernameText = new TextBox();
             UsernameLabel = new Label();
-            textBox2 = new TextBox();
+            passwordText = new TextBox();
             label2 = new Label();
             loginError = new Label();
-            button1 = new Button();
             label1 = new Label();
-            listBox1 = new ListBox();
             SuspendLayout();
             // 
             // LoginButton
@@ -47,16 +45,17 @@
             LoginButton.TabIndex = 0;
             LoginButton.Text = "Login";
             LoginButton.UseVisualStyleBackColor = true;
+            LoginButton.Click += LoginButton_Click;
             // 
-            // textBox1
+            // usernameText
             // 
-            textBox1.Location = new Point(281, 124);
-            textBox1.MaxLength = 50;
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "Enter Username";
-            textBox1.Size = new Size(249, 23);
-            textBox1.TabIndex = 2;
-            textBox1.TextChanged += textBox1_TextChanged;
+            usernameText.Location = new Point(281, 124);
+            usernameText.MaxLength = 50;
+            usernameText.Name = "usernameText";
+            usernameText.PlaceholderText = "Enter Username";
+            usernameText.Size = new Size(249, 23);
+            usernameText.TabIndex = 2;
+            usernameText.TextChanged += textBox1_TextChanged;
             // 
             // UsernameLabel
             // 
@@ -68,15 +67,15 @@
             UsernameLabel.Text = "Username";
             UsernameLabel.Click += label1_Click;
             // 
-            // textBox2
+            // passwordText
             // 
-            textBox2.Location = new Point(281, 173);
-            textBox2.MaxLength = 50;
-            textBox2.Name = "textBox2";
-            textBox2.PasswordChar = '*';
-            textBox2.PlaceholderText = "Enter Password";
-            textBox2.Size = new Size(249, 23);
-            textBox2.TabIndex = 4;
+            passwordText.Location = new Point(281, 173);
+            passwordText.MaxLength = 50;
+            passwordText.Name = "passwordText";
+            passwordText.PasswordChar = '*';
+            passwordText.PlaceholderText = "Enter Password";
+            passwordText.Size = new Size(249, 23);
+            passwordText.TabIndex = 4;
             // 
             // label2
             // 
@@ -98,16 +97,6 @@
             loginError.Text = "Error Display";
             loginError.Visible = false;
             // 
-            // button1
-            // 
-            button1.Location = new Point(540, 320);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 6;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -116,26 +105,16 @@
             label1.Size = new Size(0, 15);
             label1.TabIndex = 7;
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(12, 289);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(518, 94);
-            listBox1.TabIndex = 8;
-            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(830, 450);
-            Controls.Add(listBox1);
             Controls.Add(label1);
-            Controls.Add(button1);
             Controls.Add(loginError);
-            Controls.Add(textBox2);
+            Controls.Add(passwordText);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(usernameText);
             Controls.Add(UsernameLabel);
             Controls.Add(LoginButton);
             Name = "Login";
@@ -147,13 +126,11 @@
         #endregion
 
         private Button LoginButton;
-        private TextBox textBox1;
+        private TextBox usernameText;
         private Label UsernameLabel;
-        private TextBox textBox2;
+        private TextBox passwordText;
         private Label label2;
         private Label loginError;
-        private Button button1;
         private Label label1;
-        private ListBox listBox1;
     }
 }

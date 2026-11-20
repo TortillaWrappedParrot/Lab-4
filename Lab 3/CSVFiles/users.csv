@@ -1,4 +1,4 @@
 user_id,username,password,last_login,watch_history,admin_status
 1,basicUser,password1,2026-11-18,s1_2026-11-19|s2_2026-10-19,False
 2,basicAdmin,password2,2025-11-01,,True
-3,newUser1,coolPassword,0,2026-11-19,s5_11-3-25|s295_11-3-26,False
+3,newUser1,coolPassword,2026-11-19,s5_11-3-25|s295_11-3-26,False
