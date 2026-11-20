@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkedListBox1 = new CheckedListBox();
             keywordFilter = new TextBox();
             label1 = new Label();
             searchButton = new Button();
             label2 = new Label();
             titleLabel = new Label();
             titleFilter = new TextBox();
-            authorFilter = new TextBox();
+            directorFilter = new TextBox();
             authorLabel = new Label();
             releaseYearFilter = new TextBox();
             releaseYearLabel = new Label();
@@ -45,15 +44,9 @@
             adminDashboard = new Button();
             getRecomendedFilter = new Button();
             clientError = new Label();
+            movieDisplay = new ListBox();
+            movieDescription = new Label();
             SuspendLayout();
-            // 
-            // checkedListBox1
-            // 
-            checkedListBox1.FormattingEnabled = true;
-            checkedListBox1.Location = new Point(161, 128);
-            checkedListBox1.Name = "checkedListBox1";
-            checkedListBox1.Size = new Size(486, 274);
-            checkedListBox1.TabIndex = 0;
             // 
             // keywordFilter
             // 
@@ -105,12 +98,12 @@
             titleFilter.Size = new Size(100, 23);
             titleFilter.TabIndex = 7;
             // 
-            // authorFilter
+            // directorFilter
             // 
-            authorFilter.Location = new Point(27, 228);
-            authorFilter.Name = "authorFilter";
-            authorFilter.Size = new Size(100, 23);
-            authorFilter.TabIndex = 9;
+            directorFilter.Location = new Point(27, 228);
+            directorFilter.Name = "directorFilter";
+            directorFilter.Size = new Size(100, 23);
+            directorFilter.TabIndex = 9;
             // 
             // authorLabel
             // 
@@ -161,12 +154,13 @@
             signOutButton.TabIndex = 15;
             signOutButton.Text = "Sign Out";
             signOutButton.UseVisualStyleBackColor = true;
+            signOutButton.Click += signOutButton_Click;
             // 
             // adminDashboard
             // 
             adminDashboard.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             adminDashboard.Enabled = false;
-            adminDashboard.Location = new Point(663, 420);
+            adminDashboard.Location = new Point(969, 420);
             adminDashboard.Name = "adminDashboard";
             adminDashboard.Size = new Size(135, 23);
             adminDashboard.TabIndex = 16;
@@ -194,11 +188,30 @@
             clientError.Text = "Error Display";
             clientError.Visible = false;
             // 
+            // movieDisplay
+            // 
+            movieDisplay.FormattingEnabled = true;
+            movieDisplay.Location = new Point(161, 131);
+            movieDisplay.Name = "movieDisplay";
+            movieDisplay.Size = new Size(588, 274);
+            movieDisplay.TabIndex = 19;
+            movieDisplay.SelectedIndexChanged += movieDisplay_SelectedIndexChanged;
+            // 
+            // movieDescription
+            // 
+            movieDescription.Location = new Point(778, 131);
+            movieDescription.Name = "movieDescription";
+            movieDescription.Size = new Size(326, 274);
+            movieDescription.TabIndex = 20;
+            movieDescription.Text = "The qucik brown fox jumped over the lazy dog. Quartz of black sphinx, judge my vow.";
+            // 
             // ClientDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(810, 455);
+            ClientSize = new Size(1116, 455);
+            Controls.Add(movieDescription);
+            Controls.Add(movieDisplay);
             Controls.Add(clientError);
             Controls.Add(getRecomendedFilter);
             Controls.Add(adminDashboard);
@@ -207,7 +220,7 @@
             Controls.Add(genreLabel);
             Controls.Add(releaseYearFilter);
             Controls.Add(releaseYearLabel);
-            Controls.Add(authorFilter);
+            Controls.Add(directorFilter);
             Controls.Add(authorLabel);
             Controls.Add(titleFilter);
             Controls.Add(titleLabel);
@@ -215,7 +228,6 @@
             Controls.Add(searchButton);
             Controls.Add(label1);
             Controls.Add(keywordFilter);
-            Controls.Add(checkedListBox1);
             Name = "ClientDashboard";
             Text = "CineTrend Client Dashboard";
             ResumeLayout(false);
@@ -223,15 +235,13 @@
         }
 
         #endregion
-
-        private CheckedListBox checkedListBox1;
         private TextBox keywordFilter;
         private Label label1;
         private Button searchButton;
         private Label label2;
         private Label titleLabel;
         private TextBox titleFilter;
-        private TextBox authorFilter;
+        private TextBox directorFilter;
         private Label authorLabel;
         private TextBox releaseYearFilter;
         private Label releaseYearLabel;
@@ -241,5 +251,7 @@
         private Button adminDashboard;
         private Button getRecomendedFilter;
         private Label clientError;
+        private ListBox movieDisplay;
+        private Label movieDescription;
     }
 }

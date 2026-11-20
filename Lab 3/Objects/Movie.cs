@@ -61,5 +61,7 @@ namespace Lab_4.Objects
         {
             return castMember.Split(", ");
         }
+
+        public string DisplayText => $"{title} - {type} - {rating}";
     }
 }

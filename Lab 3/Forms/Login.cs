@@ -20,11 +20,13 @@ namespace Lab_4
         }
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            User? test = DatabaseManager.serverLogin(usernameText.Text, passwordText.Text);
-            if (test != null)
+            //bool check = Client.clientLogin(usernameText.Text, passwordText.Text);
+            bool check = Client.clientLogin("basicAdmin", "password2");
+
+            if (check == false)
             {
                 loginError.Visible = true;
-                loginError.Text = test.ToString();
+                loginError.Text = "Failed to login";
             }
         }
     }
