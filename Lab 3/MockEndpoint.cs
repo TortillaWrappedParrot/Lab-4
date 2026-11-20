@@ -11,10 +11,13 @@ namespace Lab_4
 {
     internal class MockEndpoint
     {
-        static private string netflixTitlesCSVPath = Path.Combine(Application.StartupPath, "CSVFiles", "netflix_titles.csv");
-        static private string usersCSVPath = Path.Combine(Application.StartupPath, "CSVFiles", "users.csv");
+        private string netflixTitlesCSVPath = Path.Combine(Application.StartupPath, "CSVFiles", "netflix_titles.csv");
+        private string usersCSVPath = Path.Combine(Application.StartupPath, "CSVFiles", "users.csv");
 
-        static public Movie? getMovie(string id)
+        public MockEndpoint() {
+        }
+
+        public Movie? getMovie(string id)
         {
             var orders = CsvQueryable.FromFile<Movie>(netflixTitlesCSVPath);
 
@@ -23,14 +26,14 @@ namespace Lab_4
             return match;
         }
 
-        static public List<Movie> getMovies()
+        public List<Movie> getMovies()
         {
             using var reader = CsvReader.FromFile(netflixTitlesCSVPath);
 
             return reader.GetRecords<Movie>().ToList();
         }
 
-        static public User? getUser(int id)
+        public User? getUser(int id)
         {
             var movies = CsvQueryable.FromFile<User>(usersCSVPath);
 
@@ -39,14 +42,14 @@ namespace Lab_4
             return match;
         }
 
-        static public List<User> getUsers()
+        public List<User> getUsers()
         {
             using var reader = CsvReader.FromFile(usersCSVPath);
 
             return reader.GetRecords<User>().ToList();
         }
 
-        static public List<User> getUsers(DateOnly date)
+        public List<User> getUsers(DateOnly date)
         {
             var users = CsvQueryable.FromFile<User>(usersCSVPath);
 
@@ -54,21 +57,27 @@ namespace Lab_4
 
             return match;
         }
-        static public bool addUser(string username, string password, string newMovieList)
+        public bool addUser(string username, string password, string newMovieList)
         {
             using var reader = CsvReader.FromFile(usersCSVPath);
-            var records = reader.GetRecords<User>().ToList();
+            var users = reader.GetRecords<User>().ToList();
 
-            int count = records.Count;
+            if (users.Where(u => u.username == username) != null)
+            {
+                return false;
+            }
 
-            reader.Dispose();
+            int count = users.Count;
 
             try
             {
                 using (var writer = CsvWriter.ToFile(usersCSVPath))
                 {
-                    writer.WriteRecords(records);
-                    writer.WriteRecord((count + 1).ToString(), username, password, "0", DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd"), newMovieList);
+                    writer.WriteRecords(users);
+                    writer.WriteRecord((count + 1).ToString(), username, password, DateOnly.FromDateTime(DateTime.Now).ToString("yyyy-MM-dd"), newMovieList, "False");
+
+                    writer.EndRecord();
+                    writer.Flush();
                 }
 
                 return true;
@@ -79,7 +88,7 @@ namespace Lab_4
             }
         }
 
-        static public bool updateUser(int id, string newMovieList)
+        public bool updateUser(int id, string newMovieList)
         {
             using var reader = CsvReader.FromFile(usersCSVPath);
             List<User> records = reader.GetRecords<User>().ToList();
