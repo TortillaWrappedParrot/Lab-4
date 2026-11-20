@@ -15,7 +15,7 @@ namespace Lab_4.Objects
         public string title { get; set; }
         public string director { get; set; }
         [CsvColumn("cast")]
-        public string castMember { get; set; }
+        public string castMembers { get; set; }
         public string country { get; set; }
         [CsvColumn("date_added")]
         public string dateAdded { get; set; }
@@ -36,19 +36,20 @@ namespace Lab_4.Objects
 
         // Parameterized constructor
         public Movie(string movieID, string type, string title, string director, string castMember, string country,
-                     string dateAdded, int dateReleased, string rating, string duration, string description, DateTime? lastWatched)
+                     string dateAdded, int dateReleased, string rating, string listedIn, string duration, string description, DateTime? lastWatched)
         {
             this.movieID = movieID;
             this.type = type;
             this.title = title;
             this.director = director;
-            this.castMember = castMember;
+            this.castMembers = castMember;
             this.country = country;
             this.dateAdded = dateAdded;
             this.dateReleased = dateReleased;
             this.rating = rating;
             this.duration = duration;
             this.description = description;
+            this.listedIn = listedIn;
             this.lastWatched = lastWatched;
         }
 
@@ -66,9 +67,11 @@ namespace Lab_4.Objects
 
         public string[] getCast()
         {
-            return castMember.Split(", ");
+            return castMembers.Split(", ");
         }
 
         public string DisplayText => $"{title} - {type} - {rating}";
+
+        public string DescriptionText => $"{description}\nGenres: {listedIn}\nDirector: {director}\nCast: {castMembers}\nYear Released: {dateReleased}";
     }
 }

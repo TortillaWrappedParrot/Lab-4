@@ -22,7 +22,7 @@ namespace Lab_4
 
         static public List<Movie> displayMovies(Filter filter)
         {
-            if (allMovies == null)
+            if (allMovies == null || currentUser == null)
             {
                 return new List<Movie>();
             }
@@ -60,6 +60,85 @@ namespace Lab_4
             }
 
             return movies;
+        }
+
+        static public List<Movie> getRecomendations()
+        {
+            List<Movie> returnMovies = new List<Movie>();
+
+            Dictionary<string, List<string>> countDictonary = new()
+            {
+                ["Genre"] = [],
+                ["CastMember"] = [],
+                ["Type"] = []
+            };
+
+            if (currentUser != null && allMovies != null)
+            {
+                string[] movieSets = currentUser.getWatchedMovies().Split("|");
+
+                if (movieSets.Count() <= 0 || movieSets[0].IsWhiteSpace())
+                {
+                    return returnMovies;
+                }
+
+                foreach (string movieSet in movieSets)
+                {
+                    string movie = movieSet.Split("&")[0];
+
+                    Movie targetMovie = allMovies.Where(m => m.movieID == movie).ToList()[0];
+
+                    //Count the genre, director, and type then return highly rated ones of each
+
+                    //Genres counter
+                    string[] listedGenres = targetMovie.listedIn.Split(", ");
+
+                    foreach (string genre in listedGenres)
+                    {
+                        if (!genre.Trim().IsWhiteSpace())
+                        {
+                            countDictonary["Genre"].Add(genre);
+                        }
+                    }
+
+                    //Cast counter
+
+                    string[] listedCast = targetMovie.castMembers.Split(", ");
+
+                    foreach (string castMember in listedCast)
+                    {
+                        if (!castMember.Trim().IsWhiteSpace())
+                        {
+                            countDictonary["CastMember"].Add(castMember);
+                        }
+                    }
+
+                    //Types Counter
+                    if (!targetMovie.type.Trim().IsWhiteSpace())
+                    {
+                        countDictonary["Type"].Add(targetMovie.type.Trim());
+                    }
+                }
+
+                List<string> mostPopularGenre = countDictonary["Genre"].GroupBy(x => x)
+                          .OrderByDescending(x => x.Count())
+                          .Take(2).Select(x => x.Key).ToList();
+
+                List<string> mostPopularCast = countDictonary["CastMember"].GroupBy(x => x)
+                          .OrderByDescending(x => x.Count())
+                          .Take(8).Select(x => x.Key).ToList();
+
+                string mostPopularType = countDictonary["Type"].GroupBy(x => x)
+                          .OrderByDescending(x => x.Count())
+                          .First().Key;
+
+                returnMovies = allMovies.Where(m => mostPopularCast.Any(m.castMembers.Contains) && mostPopularGenre.Any(m.listedIn.Contains)).ToList();
+
+                return returnMovies.Distinct().ToList();
+            } else
+            {
+                return returnMovies;
+            }
         }
 
         static public User? getCurrentUser()

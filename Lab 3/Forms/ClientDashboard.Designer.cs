@@ -177,6 +177,7 @@
             getRecomendedFilter.TabIndex = 17;
             getRecomendedFilter.Text = "Get Recomended Movies";
             getRecomendedFilter.UseVisualStyleBackColor = true;
+            getRecomendedFilter.Click += getRecomendedFilter_Click;
             // 
             // clientError
             // 
