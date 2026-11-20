@@ -41,7 +41,6 @@
             releaseYearLabel = new Label();
             genreFilter = new TextBox();
             genreLabel = new Label();
-            filterCheck = new CheckBox();
             signOutButton = new Button();
             adminDashboard = new Button();
             getRecomendedFilter = new Button();
@@ -118,9 +117,9 @@
             authorLabel.AutoSize = true;
             authorLabel.Location = new Point(54, 210);
             authorLabel.Name = "authorLabel";
-            authorLabel.Size = new Size(44, 15);
+            authorLabel.Size = new Size(49, 15);
             authorLabel.TabIndex = 8;
-            authorLabel.Text = "Author";
+            authorLabel.Text = "Director";
             // 
             // releaseYearFilter
             // 
@@ -153,16 +152,6 @@
             genreLabel.Size = new Size(38, 15);
             genreLabel.TabIndex = 12;
             genreLabel.Text = "Genre";
-            // 
-            // filterCheck
-            // 
-            filterCheck.AutoSize = true;
-            filterCheck.Location = new Point(27, 124);
-            filterCheck.Name = "filterCheck";
-            filterCheck.Size = new Size(113, 19);
-            filterCheck.TabIndex = 14;
-            filterCheck.Text = "Use Extra Filters?";
-            filterCheck.UseVisualStyleBackColor = true;
             // 
             // signOutButton
             // 
@@ -214,7 +203,6 @@
             Controls.Add(getRecomendedFilter);
             Controls.Add(adminDashboard);
             Controls.Add(signOutButton);
-            Controls.Add(filterCheck);
             Controls.Add(genreFilter);
             Controls.Add(genreLabel);
             Controls.Add(releaseYearFilter);
@@ -249,7 +237,6 @@
         private Label releaseYearLabel;
         private TextBox genreFilter;
         private Label genreLabel;
-        private CheckBox filterCheck;
         private Button signOutButton;
         private Button adminDashboard;
         private Button getRecomendedFilter;
