@@ -33,7 +33,7 @@ namespace Lab_4
 
                 movieDisplay.DataSource = Client.displayMovies();
                 movieDisplay.DisplayMember = "DisplayText";
-                movieDisplay.ValueMember = "Description";
+                movieDisplay.ValueMember = "DescriptionText";
 
                 movieDescription.Visible = false;
             }
@@ -48,7 +48,14 @@ namespace Lab_4
         {
             movieDisplay.DataSource = Client.displayMovies(filter);
             movieDisplay.DisplayMember = "DisplayText";
-            movieDisplay.ValueMember = "Description";
+            movieDisplay.ValueMember = "DescriptionText";
+        }
+
+        private void updateMovieDisplay(List<Movie> movies)
+        {
+            movieDisplay.DataSource = movies;
+            movieDisplay.DisplayMember = "DisplayText";
+            movieDisplay.ValueMember = "DescriptionText";
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -82,6 +89,13 @@ namespace Lab_4
         {
             this.Close();
             new AdminDashboard().Show();
+        }
+
+        private void getRecomendedFilter_Click(object sender, EventArgs e)
+        {
+            List<Movie> movies = Client.getRecomendations();
+
+            updateMovieDisplay(movies);
         }
     }
 }

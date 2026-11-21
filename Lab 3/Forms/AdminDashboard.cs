@@ -11,9 +11,12 @@ namespace Lab_4.Forms
 {
     public partial class AdminDashboard : Form
     {
+        private DatabaseManager databaseManager;
+
         public AdminDashboard()
         {
             InitializeComponent();
+            databaseManager = new DatabaseManager();
         }
 
         private void clientDashboard_Click(object sender, EventArgs e)
@@ -37,13 +40,11 @@ namespace Lab_4.Forms
                 if (userAmountNum <= 0 || movieAmountNum <= 0 || oldestYearNum < 0 || oldestYearNum > DateTime.Now.Year * 12)
                 {
                     adminError.Visible = true;
-                    adminError.Text = "Invalid number to create dummies";
+                    adminError.Text = "Invalid number in one or more fields to create dummies";
                 }
                 else
                 {
-                    bool verfiy = DatabaseManager.createDummies(userAmountNum, movieAmountNum, oldestYearNum);
-
-                    if (verfiy)
+                    if (databaseManager.createDummies(userAmountNum, movieAmountNum, oldestYearNum))
                     {
                         adminError.Visible = true;
                         adminError.Text = "Finished";
@@ -55,10 +56,36 @@ namespace Lab_4.Forms
                     }
                 }
 
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 adminError.Visible = true;
                 adminError.Text = "Invalid input";
+            }
+        }
+
+        private void generateTrendsButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int monthAmount = int.Parse(trendMonthAmount.Text);
+                if (monthAmount > 0)
+                {
+                    DateOnly lowestDate = DateOnly.FromDateTime(DateTime.Now.AddMonths(-(monthAmount)));
+
+                    Dictionary<string, string> trendData = databaseManager.getUserTrends(lowestDate);
+
+                    trendShowcase.DataSource = trendData.Select(v => $"{v.Key}: {v.Value}").ToList();
+                } else
+                {
+                    adminError.Visible = true;
+                    adminError.Text = "Enter a non-negative amount";
+                }
+            }
+            catch (Exception ex) 
+            { 
+                adminError.Visible = true;
+                adminError.Text = "Invalid month amount";
             }
         }
     }
