@@ -55,7 +55,6 @@
             usernameText.PlaceholderText = "Enter Username";
             usernameText.Size = new Size(249, 23);
             usernameText.TabIndex = 2;
-            usernameText.TextChanged += textBox1_TextChanged;
             // 
             // UsernameLabel
             // 
@@ -65,7 +64,6 @@
             UsernameLabel.Size = new Size(60, 15);
             UsernameLabel.TabIndex = 1;
             UsernameLabel.Text = "Username";
-            UsernameLabel.Click += label1_Click;
             // 
             // passwordText
             // 

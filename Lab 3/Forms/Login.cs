@@ -8,22 +8,9 @@ namespace Lab_4
         {
             InitializeComponent();
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //bool check = Client.clientLogin(usernameText.Text, passwordText.Text);
-            bool check = Client.clientLogin("basicAdmin", "password2");
-
-            if (check == false)
+            if (Client.clientLogin(usernameText.Text, passwordText.Text) == false)
             {
                 loginError.Visible = true;
                 loginError.Text = "Failed to login";

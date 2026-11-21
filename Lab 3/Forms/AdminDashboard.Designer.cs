@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             clientDashboard = new Button();
-            listBox1 = new ListBox();
+            trendShowcase = new ListBox();
             generateTrendsButton = new Button();
             trendLabel = new Label();
             generateUsersButton = new Button();
@@ -40,6 +40,8 @@
             monthLabel = new Label();
             monthAmount = new TextBox();
             adminError = new Label();
+            label2 = new Label();
+            trendMonthAmount = new TextBox();
             SuspendLayout();
             // 
             // clientDashboard
@@ -53,13 +55,13 @@
             clientDashboard.UseVisualStyleBackColor = true;
             clientDashboard.Click += clientDashboard_Click;
             // 
-            // listBox1
+            // trendShowcase
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(207, 38);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(484, 364);
-            listBox1.TabIndex = 1;
+            trendShowcase.FormattingEnabled = true;
+            trendShowcase.Location = new Point(207, 38);
+            trendShowcase.Name = "trendShowcase";
+            trendShowcase.Size = new Size(484, 364);
+            trendShowcase.TabIndex = 1;
             // 
             // generateTrendsButton
             // 
@@ -69,6 +71,7 @@
             generateTrendsButton.TabIndex = 2;
             generateTrendsButton.Text = "Generate Trends";
             generateTrendsButton.UseVisualStyleBackColor = true;
+            generateTrendsButton.Click += generateTrendsButton_Click;
             // 
             // trendLabel
             // 
@@ -148,11 +151,29 @@
             adminError.Text = "Error Display";
             adminError.Visible = false;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(707, 13);
+            label2.Name = "label2";
+            label2.Size = new Size(116, 15);
+            label2.TabIndex = 12;
+            label2.Text = "Max Month Amount";
+            // 
+            // trendMonthAmount
+            // 
+            trendMonthAmount.Location = new Point(707, 31);
+            trendMonthAmount.Name = "trendMonthAmount";
+            trendMonthAmount.Size = new Size(116, 23);
+            trendMonthAmount.TabIndex = 13;
+            // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(854, 458);
+            Controls.Add(trendMonthAmount);
+            Controls.Add(label2);
             Controls.Add(adminError);
             Controls.Add(monthLabel);
             Controls.Add(monthAmount);
@@ -163,7 +184,7 @@
             Controls.Add(generateUsersButton);
             Controls.Add(trendLabel);
             Controls.Add(generateTrendsButton);
-            Controls.Add(listBox1);
+            Controls.Add(trendShowcase);
             Controls.Add(clientDashboard);
             Name = "AdminDashboard";
             Text = "CineTrend Admin Dashboard";
@@ -174,7 +195,7 @@
         #endregion
 
         private Button clientDashboard;
-        private ListBox listBox1;
+        private ListBox trendShowcase;
         private Button generateTrendsButton;
         private Label trendLabel;
         private Button generateUsersButton;
@@ -185,5 +206,7 @@
         private Label monthLabel;
         private TextBox monthAmount;
         private Label adminError;
+        private Label label2;
+        private TextBox trendMonthAmount;
     }
 }

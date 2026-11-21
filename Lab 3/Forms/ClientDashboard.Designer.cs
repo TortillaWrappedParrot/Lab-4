@@ -20,6 +20,11 @@
             base.Dispose(disposing);
         }
 
+        private void InitializeComponents()
+        {
+
+        }
+
         #region Windows Form Designer generated code
 
         /// <summary>

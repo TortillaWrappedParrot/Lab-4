@@ -6,6 +6,7 @@ namespace Lab_4
     {
         static private User? currentUser = null;
         static private List<Movie>? allMovies = null;
+        static private DatabaseManager manager = new DatabaseManager();
 
         static public void addWatchedMovie(string id)
         {
@@ -69,8 +70,7 @@ namespace Lab_4
             Dictionary<string, List<string>> countDictonary = new()
             {
                 ["Genre"] = [],
-                ["CastMember"] = [],
-                ["Type"] = []
+                ["CastMember"] = []
             };
 
             if (currentUser != null && allMovies != null)
@@ -112,12 +112,6 @@ namespace Lab_4
                             countDictonary["CastMember"].Add(castMember);
                         }
                     }
-
-                    //Types Counter
-                    if (!targetMovie.type.Trim().IsWhiteSpace())
-                    {
-                        countDictonary["Type"].Add(targetMovie.type.Trim());
-                    }
                 }
 
                 List<string> mostPopularGenre = countDictonary["Genre"].GroupBy(x => x)
@@ -127,10 +121,6 @@ namespace Lab_4
                 List<string> mostPopularCast = countDictonary["CastMember"].GroupBy(x => x)
                           .OrderByDescending(x => x.Count())
                           .Take(8).Select(x => x.Key).ToList();
-
-                string mostPopularType = countDictonary["Type"].GroupBy(x => x)
-                          .OrderByDescending(x => x.Count())
-                          .First().Key;
 
                 returnMovies = allMovies.Where(m => mostPopularCast.Any(m.castMembers.Contains) && mostPopularGenre.Any(m.listedIn.Contains)).ToList();
 
@@ -148,11 +138,11 @@ namespace Lab_4
 
         static public bool clientLogin(string userName, string password)
         {
-            currentUser = DatabaseManager.serverLogin(userName, password);
+            currentUser = manager.serverLogin(userName, password);
 
             if (currentUser != null)
             {
-                allMovies = DatabaseManager.requestMovies();
+                allMovies = manager.requestMovies();
 
                 Form.ActiveForm?.Close();
                 new ClientDashboard().Show();
