@@ -87,8 +87,7 @@ namespace Lab_4
 
         private void adminDashboard_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new AdminDashboard().Show();
+            Client.adminBoardCheck();
         }
 
         private void getRecomendedFilter_Click(object sender, EventArgs e)

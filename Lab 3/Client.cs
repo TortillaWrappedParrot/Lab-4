@@ -1,4 +1,6 @@
+using Lab_4.Forms;
 using Lab_4.Objects;
+using System.Runtime.CompilerServices;
 
 namespace Lab_4
 {
@@ -7,6 +9,23 @@ namespace Lab_4
         static private User? currentUser = null;
         static private List<Movie>? allMovies = null;
         static private DatabaseManager manager = new DatabaseManager();
+
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
+        {
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            AppContext.Current.ShowForm(new Login());
+            Application.Run(AppContext.Current);
+        }
 
         static public void addWatchedMovie(string id)
         {
@@ -144,14 +163,33 @@ namespace Lab_4
             {
                 allMovies = manager.requestMovies();
 
-                Form.ActiveForm?.Close();
-                new ClientDashboard().Show();
+                Form? currentForm = Form.ActiveForm;
+                AppContext.Current.ShowForm(new ClientDashboard());
+                currentForm.Close();
 
                 return true;
-            } else
+            }
+            else
             {
                 return false;
             }
+        }
+
+        static public void adminBoardCheck()
+        {
+            if (currentUser != null && currentUser.getStatus() == true)
+            {
+                Form? currentForm = Form.ActiveForm;
+                AppContext.Current.ShowForm(new AdminDashboard());
+                currentForm.Close();
+            }
+        }
+
+        static public void returnToClientBoard()
+        {
+            Form? currentForm = Form.ActiveForm;
+            AppContext.Current.ShowForm(new ClientDashboard());
+            currentForm.Close();
         }
 
         static public bool logout()
@@ -159,8 +197,9 @@ namespace Lab_4
             currentUser = null;
             allMovies = null;
 
-            Form.ActiveForm?.Close();
-            new Login().Show();
+            Form? currentForm = Form.ActiveForm;
+            AppContext.Current.ShowForm(new Login());
+            currentForm.Close();
 
             //Yields until logout is complete
             return true;
