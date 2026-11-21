@@ -129,9 +129,9 @@
             monthLabel.AutoSize = true;
             monthLabel.Location = new Point(12, 101);
             monthLabel.Name = "monthLabel";
-            monthLabel.Size = new Size(74, 15);
+            monthLabel.Size = new Size(124, 15);
             monthLabel.TabIndex = 10;
-            monthLabel.Text = "Max Months";
+            monthLabel.Text = "Max Months Watched";
             // 
             // monthAmount
             // 
@@ -154,17 +154,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(707, 13);
+            label2.Location = new Point(697, 9);
             label2.Name = "label2";
-            label2.Size = new Size(116, 15);
+            label2.Size = new Size(154, 15);
             label2.TabIndex = 12;
-            label2.Text = "Max Month Amount";
+            label2.Text = "Max Month Search Amount";
             // 
             // trendMonthAmount
             // 
-            trendMonthAmount.Location = new Point(707, 31);
+            trendMonthAmount.Location = new Point(697, 31);
             trendMonthAmount.Name = "trendMonthAmount";
-            trendMonthAmount.Size = new Size(116, 23);
+            trendMonthAmount.Size = new Size(154, 23);
             trendMonthAmount.TabIndex = 13;
             // 
             // AdminDashboard
