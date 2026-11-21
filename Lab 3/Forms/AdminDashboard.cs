@@ -21,8 +21,7 @@ namespace Lab_4.Forms
 
         private void clientDashboard_Click(object sender, EventArgs e)
         {
-            this.Close();
-            new ClientDashboard().Show();
+            Client.returnToClientBoard();
         }
 
         private void generateUsersButton_Click(object sender, EventArgs e)

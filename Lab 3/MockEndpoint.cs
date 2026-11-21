@@ -143,14 +143,16 @@ namespace Lab_4
         {
             var users = CsvQueryable.FromFile<User>(usersCSVPath);
 
-            var match = users.Where(u => u.requestPassword() == password).FirstOrDefault();
+            var match = users.Where(u => u.username == username).FirstOrDefault();
 
-            if (match != null)
+            if (match != null && match.requestPassword() == password)
             {
                 updateUserStatus(match.userID);
+
+                return match;
             }
 
-            return match;
+            return null;
         }
     }
 }

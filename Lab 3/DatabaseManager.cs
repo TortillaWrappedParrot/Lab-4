@@ -52,16 +52,16 @@ namespace Lab_4
 
             Dictionary<string, List<string>> trendCount = new()
             {
-                ["Trending Genre"] = new List<string>(),
-                ["Trending Movie"] = new List<string>(),
-                ["Trending Cast Member"] = new List<string>(),
-                ["Trending Director"] = new List<string>(),
-                ["Genre + Title"] = new List<string>(),
-                ["Genre + CastMember"] = new List<string>(),
-                ["Genre + Director"] = new List<string>(),
-                ["Title + CastMember"] = new List<string>(),
-                ["Title + Director"] = new List<string>(),
-                ["CastMember + Director"] = new List<string>()
+                ["Trending Genre"] = [],
+                ["Trending Movie"] = [],
+                ["Trending Cast Member"] = [],
+                ["Trending Director"] = [],
+                ["Genre + Title"] = [],
+                ["Genre + CastMember"] = [],
+                ["Genre + Director"] = [],
+                ["Title + CastMember"] = [],
+                ["Title + Director"] = [],
+                ["CastMember + Director"] = []
             };
 
             foreach (User user in userList)
